@@ -7,13 +7,13 @@ if(isset($_POST['btn-save']))
 	$last_name = $_POST['last_name'];
 	$city_name = $_POST['city_name'];
 	// variables for input data
-	
+
 	// sql query for inserting data into database
 	$sql_query = "INSERT INTO users(first_name,last_name,user_city) VALUES('$first_name','$last_name','$city_name')";
 	// sql query for inserting data into database
-	
+
 	// sql query execution function
-	if(mysql_query($sql_query))
+	if(mysqli_query($con,$sql_query))
 	{
 		?>
 		<script type="text/javascript">

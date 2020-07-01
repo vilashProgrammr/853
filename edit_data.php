@@ -3,8 +3,8 @@ include_once 'dbconfig.php';
 if(isset($_GET['edit_id']))
 {
 	$sql_query="SELECT * FROM users WHERE user_id=".$_GET['edit_id'];
-	$result_set=mysql_query($sql_query);
-	$fetched_row=mysql_fetch_array($result_set);
+	$result_set=mysqli_query($con,$sql_query);
+	$fetched_row=mysqli_fetch_array($result_set);
 }
 if(isset($_POST['btn-update']))
 {
@@ -13,13 +13,13 @@ if(isset($_POST['btn-update']))
 	$last_name = $_POST['last_name'];
 	$city_name = $_POST['city_name'];
 	// variables for input data
-	
+
 	// sql query for update data into database
 	$sql_query = "UPDATE users SET first_name='$first_name',last_name='$last_name',user_city='$city_name' WHERE user_id=".$_GET['edit_id'];
 	// sql query for update data into database
-	
+
 	// sql query execution function
-	if(mysql_query($sql_query))
+	if(mysqli_query($con,$sql_query))
 	{
 		?>
 		<script type="text/javascript">
